@@ -3,13 +3,8 @@ var router = express.Router();
 const { ensureAuthenticated } = require('../config/auth');
 
 router.get('/', (req, res, next) => {
-    res.redirect('/users/login');
-    // res.render('home');
+    res.render('./home', { user: req.user });
 });
 
-
-router.get('/home2', (req, res, next) => {
-    res.render('./home2');
-});
 
 module.exports = router;
