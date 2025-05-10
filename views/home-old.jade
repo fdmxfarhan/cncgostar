@@ -1,0 +1,224 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    title Boxer - Software Landing Page
+    meta(http-equiv='X-UA-Compatible' content='IE=Edge')
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+    meta(name='keywords' content)
+    meta(name='description' content)
+    link(rel='stylesheet' href='css/animate.min.css')
+    link(rel='stylesheet' href='css/bootstrap.min.css')
+    link(rel='stylesheet' href='css/font-awesome.min.css')
+    link(href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,700,800' rel='stylesheet' type='text/css')
+    link(rel='stylesheet' href='css/templatemo-style.css')
+    link(rel='stylesheet' href='css/farhan-home.css')
+  body
+    .preloader
+      .sk-spinner.sk-spinner-rotating-plane
+    nav.navbar.navbar-default.navbar-fixed-top.templatemo-nav(role='navigation')
+      .container
+        .navbar-header
+          button.navbar-toggle(data-toggle='collapse' data-target='.navbar-collapse')
+            span.icon.icon-bar
+            span.icon.icon-bar
+            span.icon.icon-bar
+          a.navbar-brand(href='#') CNC GOSTAR
+        .collapse.navbar-collapse
+          ul.nav.navbar-nav.navbar-right.text-uppercase
+            li
+              a(href='#home') تماس باما
+            li
+              a(href='#feature') نمونه کارها
+            li
+              a(href='#pricing') خدمات
+            li
+              a(href='#download') درباره ما
+            li
+              a(href='#contact') خانه
+    section#home
+      .overlay
+        .container
+          .farhan-two-side-cont
+            .part.fadeIn(data-wow-delay='0.3s')
+              h1 CNC گستر
+              p 
+                |مجموعه CNC گستر در سال  1374 با هدف  طراحی و ساخت انواع قطعات صنعتی نظامی، مخابراتی، پتروشیمی، قالب سازی، جیگ و فیکسچر و... آغاز به کار نمود و اینک  پس از گذشت 28 سال و انجام پروژه های متعدد و متنوع یکی از مجریان توانمند وشناخته شده درعرصه صنعت می باشد.
+                //- a(rel='nofollow' href='http://www.facebook.com/templatemo' target='_parent') templatemo
+                //- | . Images by 
+                //- a(rel='nofollow' href='http://pixabay.com' target='_blank') Pixabay
+            .part
+              .farhan-slideshow
+                .slideshow-container
+                  -for(var i=1; i<=9; i++){
+                    .mySlides.fade
+                      .numbertext #{i} / 3
+                      img(src="/img/cncgostar/#{i}.jpg" style="width:100%")
+                      .text 
+                  -}
+                  br
+                  div(style="text-align:center")
+                    -for(var i=1; i<=9; i++)
+                      .dot
+
+              //- img.img-responsive(src='/img/software-img.png' alt='home img')
+            .col-md-1
+    section#divider
+      .container
+        .row
+          .col-md-4.wow.fadeInUp.templatemo-box(data-wow-delay='0.3s')
+            i.fa.fa-laptop
+            h3.text-uppercase خدمات CNC
+            p
+              | ارائه خدمات ماشینکاری CNC با دقت بالا، ساخت قطعات صنعتی، قالب سازی و تولید قطعات پیچیده با استفاده از تکنولوژی‌های پیشرفته.
+          .col-md-4.wow.fadeInUp.templatemo-box(data-wow-delay='0.3s')
+            i.fa.fa-cogs
+            h3.text-uppercase تجهیزات پیشرفته
+            p
+              | مجهز به ماشین‌آلات CNC مدرن، دستگاه‌های اندازه‌گیری دقیق و نرم‌افزارهای طراحی پیشرفته برای تضمین کیفیت و دقت محصولات.
+          .col-md-4.wow.fadeInUp.templatemo-box(data-wow-delay='0.3s')
+            i.fa.fa-certificate
+            h3.text-uppercase گواهینامه‌ها
+            p
+              | دارای گواهینامه‌های معتبر بین‌المللی و استانداردهای کیفیت ISO برای اطمینان از کیفیت و استانداردهای تولید.
+    section#feature
+      .container
+        .row
+          .col-md-6.wow.fadeInLeft(data-wow-delay='0.6s')
+            h2.text-uppercase خدمات ما
+            p
+              | با بیش از 28 سال تجربه در زمینه ماشینکاری CNC، ما آماده ارائه خدمات با کیفیت به مشتریان خود هستیم.
+            p
+              | طراحی و ساخت قطعات صنعتی با دقت بالا و کیفیت مطلوب
+            p
+              | تولید قطعات پیچیده و دقیق برای صنایع مختلف
+          .col-md-6.wow.fadeInRight(data-wow-delay='0.6s')
+            img.img-responsive(src='/img/software-img.png' alt='feature img')
+    section#feature1
+      .container
+        .row
+          .col-md-6.wow.fadeInUp(data-wow-delay='0.6s')
+            img.img-responsive(src='/img/software-img.png' alt='feature img')
+          .col-md-6.wow.fadeInUp(data-wow-delay='0.6s')
+            h2.text-uppercase تخصص ما
+            p
+              | تخصص ما در زمینه‌های مختلف صنعتی شامل:
+            p
+              | ساخت قطعات صنایع نظامی و دفاعی
+            p
+              | تولید قطعات صنایع پتروشیمی و نفت
+            p
+              | ساخت قطعات صنایع مخابراتی
+    section#pricing
+      .container
+        .row
+          .col-md-12.wow.bounceIn
+            h2.text-uppercase خدمات ما
+          .col-md-4.wow.fadeIn(data-wow-delay='0.6s')
+            .pricing.text-uppercase
+              .pricing-title
+                h4 خدمات پایه
+                p تماس بگیرید
+                small.text-lowercase برای قیمت
+              ul
+                li ماشینکاری ساده
+                li تولید قطعات استاندارد
+                li پشتیبانی فنی
+                li گارانتی کیفیت
+              button.btn.btn-primary.text-uppercase تماس با ما
+          .col-md-4.wow.fadeIn(data-wow-delay='0.6s')
+            .pricing.active.text-uppercase
+              .pricing-title
+                h4 خدمات پیشرفته
+                p تماس بگیرید
+                small.text-lowercase برای قیمت
+              ul
+                li ماشینکاری پیچیده
+                li تولید قطعات دقیق
+                li طراحی و مهندسی معکوس
+                li پشتیبانی فنی کامل
+              button.btn.btn-primary.text-uppercase تماس با ما
+          .col-md-4.wow.fadeIn(data-wow-delay='0.6s')
+            .pricing.text-uppercase
+              .pricing-title
+                h4 خدمات ویژه
+                p تماس بگیرید
+                small.text-lowercase برای قیمت
+              ul
+                li تولید انبوه
+                li پروژه‌های صنعتی بزرگ
+                li مشاوره فنی تخصصی
+                li پشتیبانی کامل
+              button.btn.btn-primary.text-uppercase تماس با ما
+    section#download
+      .container
+        .row
+          .col-md-6.wow.fadeInLeft(data-wow-delay='0.6s')
+            h2.text-uppercase نمونه کارها
+            p
+              | برای مشاهده نمونه کارهای ما و آشنایی با توانمندی‌های شرکت، می‌توانید از گالری تصاویر ما دیدن فرمایید.
+            button.btn.btn-primary.text-uppercase
+              i.fa.fa-image
+              |  مشاهده گالری
+          .col-md-6.wow.fadeInRight(data-wow-delay='0.6s')
+            img.img-responsive(src='/img/software-img.png' alt='feature img')
+    section#contact
+      .overlay
+        .container
+          .row
+            .col-md-6.wow.fadeInUp(data-wow-delay='0.6s')
+              h2.text-uppercase تماس با ما
+              p
+                | برای دریافت مشاوره رایگان و استعلام قیمت، با ما تماس بگیرید.
+              address
+                p
+                  i.fa.fa-map-marker
+                  | تهران، خیابان آزادی، خیابان بهبودی، پلاک 123
+                p
+                  i.fa.fa-phone
+                  |  021-12345678
+                p
+                  i.fa.fa-envelope-o
+                  |  info@cncgostar.com
+            .col-md-6.wow.fadeInUp(data-wow-delay='0.6s')
+              .contact-form
+                form(action='#' method='post')
+                  .col-md-6
+                    input.form-control(type='text' placeholder='نام و نام خانوادگی')
+                  .col-md-6
+                    input.form-control(type='email' placeholder='ایمیل')
+                  .col-md-12
+                    input.form-control(type='text' placeholder='موضوع')
+                  .col-md-12
+                    textarea.form-control(placeholder='پیام' rows='4')
+                  .col-md-8
+                    input.form-control.text-uppercase(type='submit' value='ارسال پیام')
+    footer
+      .container
+        .row
+          p تمامی حقوق این وبسایت متعلق به شرکت CNC گستر می‌باشد © 1402
+    script(src='js/jquery.js')
+    script(src='js/bootstrap.min.js')
+    script(src='js/wow.min.js')
+    script(src='js/jquery.singlePageNav.min.js')
+    script(src='js/custom.js')
+    script.
+      let slideIndex = 0;
+      showSlides();
+
+      function showSlides() {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        let dots = document.getElementsByClassName("dot");
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";  
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {slideIndex = 1}    
+        for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex-1].style.display = "block";  
+        dots[slideIndex-1].className += " active";
+        setTimeout(showSlides, 3000); // Change image every 2 seconds
+      }

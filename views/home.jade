@@ -1,228 +1,142 @@
 doctype html
-html(lang='en')
+html(lang='fa' dir='rtl')
   head
     meta(charset='utf-8')
-    title Boxer - Software Landing Page
+    title CNC Bartar 
     meta(http-equiv='X-UA-Compatible' content='IE=Edge')
     meta(name='viewport' content='width=device-width, initial-scale=1')
     meta(name='keywords' content)
     meta(name='description' content)
-    link(rel='stylesheet' href='css/animate.min.css')
-    link(rel='stylesheet' href='css/bootstrap.min.css')
-    link(rel='stylesheet' href='css/font-awesome.min.css')
     link(href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,700,800' rel='stylesheet' type='text/css')
-    link(rel='stylesheet' href='css/templatemo-style.css')
-    link(rel='stylesheet' href='css/farhan-home.css')
+    link(rel='stylesheet' href='/css/landing/home.css')
+    link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css')
   body
-    .preloader
-      .sk-spinner.sk-spinner-rotating-plane
-    nav.navbar.navbar-default.navbar-fixed-top.templatemo-nav(role='navigation')
-      .container
-        .navbar-header
-          button.navbar-toggle(data-toggle='collapse' data-target='.navbar-collapse')
-            span.icon.icon-bar
-            span.icon.icon-bar
-            span.icon.icon-bar
-          a.navbar-brand(href='#') CNC GOSTAR
-        .collapse.navbar-collapse
-          ul.nav.navbar-nav.navbar-right.text-uppercase
-            li
-              a(href='#home') تماس باما
-            li
-              a(href='#feature') نمونه کارها
-            li
-              a(href='#pricing') خدمات
-            li
-              a(href='#download') درباره ما
-            li
-              a(href='#contact') خانه
-    section#home
-      .overlay
-        .container
-          .farhan-two-side-cont
-            .part.fadeIn(data-wow-delay='0.3s')
-              h1 CNC گستر
-              p 
-                |مجموعه CNC گستر در سال  1374 با هدف  طراحی و ساخت انواع قطعات صنعتی نظامی، مخابراتی، پتروشیمی، قالب سازی، جیگ و فیکسچر و... آغاز به کار نمود و اینک  پس از گذشت 28 سال و انجام پروژه های متعدد و متنوع یکی از مجریان توانمند وشناخته شده درعرصه صنعت می باشد.
-                //- a(rel='nofollow' href='http://www.facebook.com/templatemo' target='_parent') templatemo
-                //- | . Images by 
-                //- a(rel='nofollow' href='http://pixabay.com' target='_blank') Pixabay
-            .part
-              .farhan-slideshow
-                .slideshow-container
-                  -for(var i=1; i<=9; i++){
-                    .mySlides.fade
-                      .numbertext #{i} / 3
-                      img(src="/img/cncgostar/#{i}.jpg" style="width:100%")
-                      .text 
-                  -}
-                  br
-                  div(style="text-align:center")
-                    -for(var i=1; i<=9; i++)
-                      .dot
-
-              //- img.img-responsive(src='/img/software-img.png' alt='home img')
-            .col-md-1
-    section#divider
-      .container
-        .row
-          .col-md-4.wow.fadeInUp.templatemo-box(data-wow-delay='0.3s')
-            i.fa.fa-laptop
-            h3.text-uppercase RESPONSIVE LAYOUT
-            p
-              | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
-          .col-md-4.wow.fadeInUp.templatemo-box(data-wow-delay='0.3s')
-            i.fa.fa-twitter
-            h3.text-uppercase BOOTSTRAP 3.3.4
-            p
-              | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
-          .col-md-4.wow.fadeInUp.templatemo-box(data-wow-delay='0.3s')
-            i.fa.fa-font
-            h3.text-uppercase GOOGLE FONT
-            p
-              | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
-    section#feature
-      .container
-        .row
-          .col-md-6.wow.fadeInLeft(data-wow-delay='0.6s')
-            h2.text-uppercase Our Software Features
-            p
-              | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            p
-              span
-                i.fa.fa-mobile
-              | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            p
-              i.fa.fa-code
-              | Quis autem velis reprehenderit et quis voluptate velit esse quam.
-          .col-md-6.wow.fadeInRight(data-wow-delay='0.6s')
-            img.img-responsive(src='/img/software-img.png' alt='feature img')
-    section#feature1
-      .container
-        .row
-          .col-md-6.wow.fadeInUp(data-wow-delay='0.6s')
-            img.img-responsive(src='/img/software-img.png' alt='feature img')
-          .col-md-6.wow.fadeInUp(data-wow-delay='0.6s')
-            h2.text-uppercase More of Your Software
-            p
-              | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            p
-              span
-                i.fa.fa-mobile
-              | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            p
-              i.fa.fa-code
-              | Quis autem velis reprehenderit et quis voluptate velit esse quam.
-    section#pricing
-      .container
-        .row
-          .col-md-12.wow.bounceIn
-            h2.text-uppercase Our Pricing
-          .col-md-4.wow.fadeIn(data-wow-delay='0.6s')
-            .pricing.text-uppercase
-              .pricing-title
-                h4 Basic Plan
-                p $11
-                small.text-lowercase monthly
-              ul
-                li 6 GB Space
-                li 600 GB Bandwidth
-                li 60 More Themes
-                li Lifetime Support
-              button.btn.btn-primary.text-uppercase Sign up
-          .col-md-4.wow.fadeIn(data-wow-delay='0.6s')
-            .pricing.active.text-uppercase
-              .pricing-title
-                h4 Business Plan
-                p $22
-                small.text-lowercase monthly
-              ul
-                li 15 GB space
-                li 1,500 GB Bandwidth
-                li 150 More Themes
-                li Lifetime Support
-              button.btn.btn-primary.text-uppercase Sign up
-          .col-md-4.wow.fadeIn(data-wow-delay='0.6s')
-            .pricing.text-uppercase
-              .pricing-title
-                h4 Pro Plan
-                p $33
-                small.text-lowercase monthly
-              ul
-                li 35 GB space
-                li 3,500 GB bandwidth
-                li 350 more themes
-                li Lifetime Support
-              button.btn.btn-primary.text-uppercase Sign Up
-    section#download
-      .container
-        .row
-          .col-md-6.wow.fadeInLeft(data-wow-delay='0.6s')
-            h2.text-uppercase Download Our Software
-            p
-              | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
-            button.btn.btn-primary.text-uppercase
-              i.fa.fa-download
-              |  Download
-          .col-md-6.wow.fadeInRight(data-wow-delay='0.6s')
-            img.img-responsive(src='/img/software-img.png' alt='feature img')
-    section#contact
-      .overlay
-        .container
-          .row
-            .col-md-6.wow.fadeInUp(data-wow-delay='0.6s')
-              h2.text-uppercase Contact Us
-              p
-                | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
-              address
-                p
-                  i.fa.fa-map-marker
-                  | 36 Street Name, City Name, United States
-                p
-                  i.fa.fa-phone
-                  |  010-010-0110 or 020-020-0220
-                p
-                  i.fa.fa-envelope-o
-                  |  info@company.com
-            .col-md-6.wow.fadeInUp(data-wow-delay='0.6s')
-              .contact-form
-                form(action='#' method='post')
-                  .col-md-6
-                    input.form-control(type='text' placeholder='Name')
-                  .col-md-6
-                    input.form-control(type='email' placeholder='Email')
-                  .col-md-12
-                    input.form-control(type='text' placeholder='Subject')
-                  .col-md-12
-                    textarea.form-control(placeholder='Message' rows='4')
-                  .col-md-8
-                    input.form-control.text-uppercase(type='submit' value='Send')
-    footer
-      .container
-        .row
-          p Copyright © 2084 Your Company Name
-    script(src='js/jquery.js')
-    script(src='js/bootstrap.min.js')
-    script(src='js/wow.min.js')
-    script(src='js/jquery.singlePageNav.min.js')
-    script(src='js/custom.js')
+    .slideshow-container
+      .slide.fade
+        img(src='/img/landing/01.jpg' alt='Slide 1')
+      .slide.fade
+        img(src='/img/landing/02.jpg' alt='Slide 2')
+      .slide.fade
+        img(src='/img/landing/03.jpg' alt='Slide 3')
+      .slide.fade
+        img(src='/img/landing/04.jpg' alt='Slide 4')
+      //- .slide-controls
+      //-   span.prev(onclick='changeSlide(-1)') &#10094;
+      //-   span.next(onclick='changeSlide(1)') &#10095;
+      .slide-dots
+        span.dot(onclick='currentSlide(1)')
+        span.dot(onclick='currentSlide(2)')
+        span.dot(onclick='currentSlide(3)')
+        span.dot(onclick='currentSlide(4)')
+    
+    nav.navbar
+      .navbar-right
+        a.logo(href='/')
+          img(src='/img/logo.png' alt='CNC Bartar Logo')
+        ul.nav-links
+          li
+            a(href='/') صفحه اصلی
+          li.dropdown
+            a(href='/services') خدمات ما
+            .dropdown-content
+              .dropdown-column
+                h3 خدمات برش
+                a(href='/services/cnc') برش CNC
+                a(href='/services/laser') برش لیزر
+                a(href='/services/waterjet') برش واترجت
+                a(href='/services/plasma') برش پلاسما
+              .dropdown-column
+                h3 خدمات حکاکی
+                a(href='/services/engraving/laser') حکاکی لیزر
+                a(href='/services/engraving/cnc') حکاکی CNC
+                a(href='/services/engraving/rotary') حکاکی دورانی
+              .dropdown-column
+                h3 خدمات خم
+                a(href='/services/bending/sheet') خم ورق
+                a(href='/services/bending/tube') خم لوله
+                a(href='/services/bending/profile') خم پروفیل
+          li
+            a(href='/products') محصولات
+          li
+            a(href='/articles') مقالات
+          li
+            a(href='/about') درباره ما
+          li
+            a(href='/contact') تماس با ما
+      
+      .navbar-left
+        .search-box
+          input(type='text' placeholder='جستجو...')
+          button.search-btn
+            i.fas.fa-search
+    
+        .social-links
+          a.social-link(href='#' target='_blank')
+            i.fab.fa-instagram
+          a.social-link(href='#' target='_blank')
+            i.fab.fa-whatsapp
+          a.social-link(href='#' target='_blank')
+            i.fab.fa-telegram-plane
+          
     script.
-      let slideIndex = 0;
-      showSlides();
+      let slideIndex = 1;
+      showSlides(slideIndex);
 
-      function showSlides() {
-        let i;
-        let slides = document.getElementsByClassName("mySlides");
+      function changeSlide(n) {
+        showSlides(slideIndex += n);
+      }
+
+      function currentSlide(n) {
+        showSlides(slideIndex = n);
+      }
+
+      function showSlides(n) {
+        let slides = document.getElementsByClassName("slide");
         let dots = document.getElementsByClassName("dot");
-        for (i = 0; i < slides.length; i++) {
-          slides[i].style.display = "none";  
+        
+        if (n > slides.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = slides.length}
+        
+        for (let i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
         }
-        slideIndex++;
-        if (slideIndex > slides.length) {slideIndex = 1}    
-        for (i = 0; i < dots.length; i++) {
+        for (let i = 0; i < dots.length; i++) {
           dots[i].className = dots[i].className.replace(" active", "");
         }
-        slides[slideIndex-1].style.display = "block";  
+        
+        slides[slideIndex-1].style.display = "block";
         dots[slideIndex-1].className += " active";
-        setTimeout(showSlides, 3000); // Change image every 2 seconds
       }
+
+      // Auto slide
+      setInterval(() => {
+        changeSlide(1);
+      }, 5000);
+
+      // Dropdown handling
+      const dropdown = document.querySelector('.dropdown');
+      const dropdownContent = document.querySelector('.dropdown-content');
+      let isDropdownOpen = false;
+      let timeoutId;
+
+      function showDropdown() {
+        isDropdownOpen = true;
+        dropdownContent.style.display = 'flex';
+        if (timeoutId) {
+          clearTimeout(timeoutId);
+        }
+      }
+
+      function hideDropdown() {
+        timeoutId = setTimeout(() => {
+          isDropdownOpen = false;
+          dropdownContent.style.display = 'none';
+        }, 200);
+      }
+
+      dropdown.addEventListener('mouseenter', showDropdown);
+      dropdownContent.addEventListener('mouseenter', showDropdown);
+      
+      dropdown.addEventListener('mouseleave', hideDropdown);
+      dropdownContent.addEventListener('mouseleave', hideDropdown);
+        
