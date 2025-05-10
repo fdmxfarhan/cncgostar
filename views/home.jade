@@ -14,12 +14,24 @@ html(lang='fa' dir='rtl')
     .slideshow-container
       .slide.fade
         img(src='/img/landing/01.jpg' alt='Slide 1')
+        .slide-content
+          h2.title خدمات برش CNC
+          p.description با استفاده از پیشرفته‌ترین دستگاه‌های CNC، برش دقیق و با کیفیت را تجربه کنید
       .slide.fade
         img(src='/img/landing/02.jpg' alt='Slide 2')
+        .slide-content
+          h2.title برش لیزر
+          p.description برش لیزری با دقت بالا و کیفیت عالی برای انواع متریال
       .slide.fade
         img(src='/img/landing/03.jpg' alt='Slide 3')
+        .slide-content
+          h2.title حکاکی CNC
+          p.description حکاکی دقیق و هنرمندانه با دستگاه‌های CNC پیشرفته
       .slide.fade
         img(src='/img/landing/04.jpg' alt='Slide 4')
+        .slide-content
+          h2.title خدمات خمکاری
+          p.description خمکاری دقیق ورق، لوله و پروفیل با دستگاه‌های مدرن
       //- .slide-controls
       //-   span.prev(onclick='changeSlide(-1)') &#10094;
       //-   span.next(onclick='changeSlide(1)') &#10095;
@@ -139,4 +151,17 @@ html(lang='fa' dir='rtl')
       
       dropdown.addEventListener('mouseleave', hideDropdown);
       dropdownContent.addEventListener('mouseleave', hideDropdown);
+        
+    section.about-section
+      h2.section-title درباره سی انسی برتر
+      .about-content
+        p.about-text
+          | شرکت سی ان سی برتر با بیش از یک دهه تجربه در زمینه خدمات برش و حکاکی، یکی از پیشگامان صنعت در ایران است. ما با استفاده از پیشرفته‌ترین دستگاه‌های CNC، لیزر، واترجت و پلاسما، خدمات برش و حکاکی با دقت بالا را به مشتریان خود ارائه می‌دهیم. تیم متخصص ما با دانش فنی بالا و تجربه کافی، آماده خدمت‌رسانی به صنایع مختلف از جمله خودروسازی، هوافضا، معماری و هنر می‌باشد. ما متعهد به ارائه خدمات با کیفیت، قیمت مناسب و تحویل به موقع هستیم.
+        .contact-buttons
+          a.phone-button(href='tel:+989123456789')
+            i.fas.fa-phone
+            span ۰۹۱۲-۳۴۵-۶۷۸۹
+          a.phone-button(href='tel:+982112345678')
+            i.fas.fa-phone
+            span ۰۲۱-۱۲۳۴-۵۶۷۸
         

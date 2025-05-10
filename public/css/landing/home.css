@@ -47,6 +47,29 @@ body {
   object-fit: cover;
 }
 
+.slide-content {
+  position: absolute;
+  bottom: 20vw;
+  right: 5vw;
+  color: white;
+  z-index: 2;
+  text-align: right;
+  max-width: 50%;
+}
+
+.slide-content .title {
+  font-size: 3vw;
+  margin-bottom: 1vw;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.slide-content .description {
+  font-size: 1.5vw;
+  line-height: 1.6;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
 .fade {
   animation-name: fade;
   animation-duration: 1.5s;
@@ -286,4 +309,69 @@ body {
     height: 2vw;
     width: 2vw;
   }
+}
+
+/* About Section Styles */
+.about-section {
+  padding: 5vw 3vw;
+  background-color: #f8f9fa;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5vw;
+  color: #333;
+  margin-bottom: 3vw;
+  padding-bottom: 1vw;
+  border-bottom: 3px solid #007bff;
+  position: relative;
+  display: inline-block;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.about-content {
+  background-color: white;
+  padding: 3vw;
+  border-radius: 1vw;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.about-text {
+  text-align: justify;
+  line-height: 2;
+  font-size: 1.1vw;
+  color: #444;
+  margin-bottom: 2vw;
+}
+
+.contact-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 2vw;
+  margin-top: 2vw;
+}
+
+.phone-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5vw;
+  padding: 1vw 2vw;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 0.5vw;
+  font-size: 1.2vw;
+  transition: all 0.3s ease;
+}
+
+.phone-button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+.phone-button i {
+  font-size: 1.4vw;
 }
