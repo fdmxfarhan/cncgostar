@@ -45,36 +45,41 @@ html(lang='fa' dir='rtl')
       .navbar-right
         a.logo(href='/')
           img(src='/img/logo.png' alt='CNC Bartar Logo')
-        ul.nav-links
-          li
-            a(href='/') صفحه اصلی
-          li.dropdown
-            a(href='/services') خدمات ما
-            .dropdown-content
-              .dropdown-column
-                h3 خدمات برش
-                a(href='/services/cnc') برش CNC
-                a(href='/services/laser') برش لیزر
-                a(href='/services/waterjet') برش واترجت
-                a(href='/services/plasma') برش پلاسما
-              .dropdown-column
-                h3 خدمات حکاکی
-                a(href='/services/engraving/laser') حکاکی لیزر
-                a(href='/services/engraving/cnc') حکاکی CNC
-                a(href='/services/engraving/rotary') حکاکی دورانی
-              .dropdown-column
-                h3 خدمات خم
-                a(href='/services/bending/sheet') خم ورق
-                a(href='/services/bending/tube') خم لوله
-                a(href='/services/bending/profile') خم پروفیل
-          li
-            a(href='/products') محصولات
-          li
-            a(href='/articles') مقالات
-          li
-            a(href='/about') درباره ما
-          li
-            a(href='/contact') تماس با ما
+        .mobile-menu-btn
+          span
+          span
+          span
+        .nav-links-container
+          ul.nav-links
+            li
+              a(href='/') صفحه اصلی
+            li.dropdown
+              a(href='/services') خدمات ما
+              .dropdown-content
+                .dropdown-column
+                  h3 خدمات برش
+                  a(href='/services/cnc') برش CNC
+                  a(href='/services/laser') برش لیزر
+                  a(href='/services/waterjet') برش واترجت
+                  a(href='/services/plasma') برش پلاسما
+                .dropdown-column
+                  h3 خدمات حکاکی
+                  a(href='/services/engraving/laser') حکاکی لیزر
+                  a(href='/services/engraving/cnc') حکاکی CNC
+                  a(href='/services/engraving/rotary') حکاکی دورانی
+                .dropdown-column
+                  h3 خدمات خم
+                  a(href='/services/bending/sheet') خم ورق
+                  a(href='/services/bending/tube') خم لوله
+                  a(href='/services/bending/profile') خم پروفیل
+            li
+              a(href='/products') محصولات
+            li
+              a(href='/articles') مقالات
+            li
+              a(href='/about') درباره ما
+            li
+              a(href='/contact') تماس با ما
       
       .navbar-left
         .search-box
@@ -91,6 +96,44 @@ html(lang='fa' dir='rtl')
             i.fab.fa-telegram-plane
           
     script.
+      // Mobile menu functionality
+      const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+      const navLinksContainer = document.querySelector('.nav-links-container');
+      const dropdowns = document.querySelectorAll('.dropdown');
+
+      mobileMenuBtn.addEventListener('click', () => {
+        mobileMenuBtn.classList.toggle('active');
+        navLinksContainer.classList.toggle('active');
+      });
+
+      // Handle dropdowns in mobile view
+      dropdowns.forEach(dropdown => {
+        const dropdownLink = dropdown.querySelector('a');
+        dropdownLink.addEventListener('click', (e) => {
+          if (window.innerWidth <= 768) {
+            e.preventDefault();
+            dropdown.classList.toggle('active');
+          }
+        });
+      });
+
+      // Close mobile menu when clicking outside
+      document.addEventListener('click', (e) => {
+        if (!navLinksContainer.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+          mobileMenuBtn.classList.remove('active');
+          navLinksContainer.classList.remove('active');
+        }
+      });
+
+      // Close mobile menu when window is resized above mobile breakpoint
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 768) {
+          mobileMenuBtn.classList.remove('active');
+          navLinksContainer.classList.remove('active');
+          dropdowns.forEach(dropdown => dropdown.classList.remove('active'));
+        }
+      });
+
       let slideIndex = 1;
       showSlides(slideIndex);
 
@@ -153,7 +196,7 @@ html(lang='fa' dir='rtl')
       dropdownContent.addEventListener('mouseleave', hideDropdown);
         
     section.about-section
-      h2.section-title درباره سی انسی برتر
+      h2.section-title درباره سی ان سی برتر
       .about-content
         p.about-text
           | شرکت سی ان سی برتر با بیش از یک دهه تجربه در زمینه خدمات برش و حکاکی، یکی از پیشگامان صنعت در ایران است. ما با استفاده از پیشرفته‌ترین دستگاه‌های CNC، لیزر، واترجت و پلاسما، خدمات برش و حکاکی با دقت بالا را به مشتریان خود ارائه می‌دهیم. تیم متخصص ما با دانش فنی بالا و تجربه کافی، آماده خدمت‌رسانی به صنایع مختلف از جمله خودروسازی، هوافضا، معماری و هنر می‌باشد. ما متعهد به ارائه خدمات با کیفیت، قیمت مناسب و تحویل به موقع هستیم.
@@ -164,4 +207,105 @@ html(lang='fa' dir='rtl')
           a.phone-button(href='tel:+982112345678')
             i.fas.fa-phone
             span ۰۲۱-۱۲۳۴-۵۶۷۸
+    
+    section
+      h2.section-title محصولات سی ان سی برتر
+      
+    section.products-section
+      .product-cards
+        .product-card
+          .card-slideshow
+            .card-slide.fade
+              img(src='/img/cncgostar/photo/2-MOKHABERAT/1.JPG' alt='قطعات مخابراتی 1')
+            .card-slide.fade
+              img(src='/img/cncgostar/photo/2-MOKHABERAT/2.JPG' alt='قطعات مخابراتی 2')
+            .card-slide.fade
+              img(src='/img/cncgostar/photo/2-MOKHABERAT/3.JPG' alt='قطعات مخابراتی 3')
+          .card-content
+            h3.card-title قطعات مخابراتی
+            p.card-description
+              | تولید قطعات دقیق و با کیفیت برای صنعت مخابرات با استفاده از دستگاه‌های CNC پیشرفته. خدمات ما شامل برش، حکاکی و ماشینکاری قطعات مخابراتی با دقت بالا و کیفیت برتر است. ما با استفاده از تکنولوژی‌های روز دنیا، قطعات مورد نیاز صنعت مخابرات را با بهترین کیفیت و قیمت مناسب تولید می‌کنیم.
+
+        .product-card
+          .card-slideshow
+            .card-slide.fade
+              img(src='/img/cncgostar/photo/3-NEZAMI/1.jpg' alt='قطعات نظامی 1')
+            .card-slide.fade
+              img(src='/img/cncgostar/photo/3-NEZAMI/2.jpg' alt='قطعات نظامی 2')
+            .card-slide.fade
+              img(src='/img/cncgostar/photo/3-NEZAMI/3.jpg' alt='قطعات نظامی 3')
+          .card-content
+            h3.card-title نظامی
+            p.card-description
+              | ساخت قطعات دقیق و مقاوم برای صنایع نظامی با استانداردهای بالا و کیفیت برتر. ما با استفاده از دستگاه‌های CNC پیشرفته و مواد اولیه با کیفیت، قطعات نظامی را با دقت بالا و مقاومت مناسب تولید می‌کنیم. خدمات ما شامل برش، حکاکی، ماشینکاری و پرداخت قطعات نظامی است.
+
+        .product-card
+          .card-slideshow
+            .card-slide.fade
+              img(src='/img/cncgostar/photo/5-GHALEB/1.jpg' alt='قالب‌سازی 1')
+            .card-slide.fade
+              img(src='/img/cncgostar/photo/5-GHALEB/2.jpg' alt='قالب‌سازی 2')
+            .card-slide.fade
+              img(src='/img/cncgostar/photo/5-GHALEB/3.jpg' alt='قالب‌سازی 3')
+          .card-content
+            h3.card-title قالب سازی
+            p.card-description
+              | طراحی و ساخت قالب‌های دقیق و با کیفیت برای صنایع مختلف با استفاده از تکنولوژی‌های پیشرفته. ما با تجربه بالا در زمینه قالب‌سازی، قالب‌های مورد نیاز صنایع مختلف را با دقت بالا و کیفیت برتر تولید می‌کنیم. خدمات ما شامل طراحی، ساخت و تعمیر قالب‌های مختلف است.
+
+    section.services-showcase
+      .services-container
+        a.service-column(href='/services/cnc')
+          .service-image
+            img(src='/img/cncgostar/photo/1-ASLI/1.jpg' alt='خدمات CNC')
+            .overlay
+            .service-content
+              h3.service-title خدمات CNC
+              .service-link
+                span مشاهده خدمات
+                i.fas.fa-chevron-left
+
+        a.service-column(href='/services/mold')
+          .service-image
+            img(src='/img/cncgostar/photo/4-4 MEHVAR/1.jpg' alt='خدمات قالب سازی')
+            .overlay
+            .service-content
+              h3.service-title خدمات قالب سازی
+              .service-link
+                span مشاهده خدمات
+                i.fas.fa-chevron-left
+
+    script.
+      // Card slideshow functionality
+      function initCardSlideshows() {
+        const cardSlideshows = document.querySelectorAll('.card-slideshow');
         
+        cardSlideshows.forEach((slideshow, index) => {
+          const slides = slideshow.getElementsByClassName('card-slide');
+          let currentSlide = 0;
+          
+          // Set initial state
+          for (let i = 0; i < slides.length; i++) {
+            slides[i].style.opacity = i === 0 ? '1' : '0';
+            slides[i].style.display = 'block';
+          }
+          
+          // Start each slideshow at a different time
+          setTimeout(() => {
+            // Auto slide for each card
+            setInterval(() => {
+              // Fade out current slide
+              slides[currentSlide].style.opacity = '0';
+              
+              // Move to next slide
+              currentSlide = (currentSlide + 1) % slides.length;
+              
+              // Fade in next slide
+              slides[currentSlide].style.opacity = '1';
+            }, 3000);
+          }, index * 1000); // Start each slideshow 1 second after the previous one
+        });
+      }
+
+      // Initialize card slideshows when the page loads
+      window.addEventListener('load', initCardSlideshows);
+      
