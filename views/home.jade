@@ -54,7 +54,7 @@ html(lang='fa' dir='rtl')
             li
               a(href='/') صفحه اصلی
             li.dropdown
-              a(href='/services') خدمات ما
+              a خدمات ما
               .dropdown-content
                 .dropdown-column
                   h3 خدمات برش
@@ -72,14 +72,83 @@ html(lang='fa' dir='rtl')
                   a(href='/services/bending/sheet') خم ورق
                   a(href='/services/bending/tube') خم لوله
                   a(href='/services/bending/profile') خم پروفیل
-            li
-              a(href='/products') محصولات
-            li
-              a(href='/articles') مقالات
-            li
-              a(href='/about') درباره ما
-            li
-              a(href='/contact') تماس با ما
+            li.dropdown
+              a محصولات
+              .dropdown-content
+                .dropdown-column
+                  h3 قطعات صنعتی
+                  a(href='/products/industrial/cnc') قطعات CNC
+                  a(href='/products/industrial/laser') قطعات لیزر
+                  a(href='/products/industrial/waterjet') قطعات واترجت
+                  a(href='/products/industrial/plasma') قطعات پلاسما
+                .dropdown-column
+                  h3 قطعات هنری
+                  a(href='/products/artistic/engraving') حکاکی هنری
+                  a(href='/products/artistic/signage') تابلوهای تبلیغاتی
+                  a(href='/products/artistic/decorative') تزئینات دکوراتیو
+                .dropdown-column
+                  h3 قطعات سفارشی
+                  a(href='/products/custom/design') طراحی سفارشی
+                  a(href='/products/custom/prototype') نمونه‌سازی
+                  a(href='/products/custom/production') تولید انبوه
+            li.dropdown
+              a مقالات
+              .dropdown-content
+                .dropdown-column
+                  h3 مقالات فنی
+                  a(href='/articles/technical/cnc') مقالات CNC
+                  a(href='/articles/technical/laser') مقالات لیزر
+                  a(href='/articles/technical/waterjet') مقالات واترجت
+                  a(href='/articles/technical/plasma') مقالات پلاسما
+                .dropdown-column
+                  h3 مقالات آموزشی
+                  a(href='/articles/educational/tutorials') آموزش‌ها
+                  a(href='/articles/educational/guides') راهنماها
+                  a(href='/articles/educational/tips') نکات کاربردی
+                .dropdown-column
+                  h3 اخبار و رویدادها
+                  a(href='/articles/news/industry') اخبار صنعت
+                  a(href='/articles/news/company') اخبار شرکت
+                  a(href='/articles/news/events') رویدادها
+            li.dropdown
+              a درباره ما
+              .dropdown-content
+                .dropdown-column
+                  h3 معرفی
+                  a(href='/about/company') معرفی شرکت
+                  a(href='/about/history') تاریخچه
+                  a(href='/about/team') تیم ما
+                  a(href='/about/certificates') گواهینامه‌ها
+                .dropdown-column
+                  h3 تجهیزات
+                  a(href='/about/equipment/cnc') دستگاه‌های CNC
+                  a(href='/about/equipment/laser') دستگاه‌های لیزر
+                  a(href='/about/equipment/waterjet') دستگاه‌های واترجت
+                  a(href='/about/equipment/plasma') دستگاه‌های پلاسما
+                .dropdown-column
+                  h3 همکاری
+                  a(href='/about/partnership/opportunities') فرصت‌های همکاری
+                  a(href='/about/partnership/careers') فرصت‌های شغلی
+                  a(href='/about/partnership/suppliers') تأمین‌کنندگان
+            li.dropdown
+              a تماس با ما
+              .dropdown-content
+                .dropdown-column
+                  h3 اطلاعات تماس
+                  a(href='/contact/address') آدرس و نقشه
+                  a(href='/contact/phone') شماره‌های تماس
+                  a(href='/contact/email') ایمیل
+                  a(href='/contact/social') شبکه‌های اجتماعی
+                .dropdown-column
+                  h3 فرم‌ها
+                  a(href='/contact/quote') درخواست قیمت
+                  a(href='/contact/support') پشتیبانی
+                  a(href='/contact/feedback') نظرات و پیشنهادات
+                .dropdown-column
+                  h3 ساعات کاری
+                  a(href='/contact/hours') ساعات کاری
+                  a(href='/contact/locations') شعبه‌ها
+                  a(href='/contact/emergency') تماس اضطراری
       
       .navbar-left
         .search-box
@@ -100,6 +169,18 @@ html(lang='fa' dir='rtl')
       const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
       const navLinksContainer = document.querySelector('.nav-links-container');
       const dropdowns = document.querySelectorAll('.dropdown');
+      const navbar = document.querySelector('.navbar');
+
+      // Navbar scroll animation
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+          navbar.style.margin = '1vw';
+          navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+        } else {
+          navbar.style.margin = '3vw';
+          navbar.style.background = 'rgba(255, 255, 255, 0.9)';
+        }
+      });
 
       mobileMenuBtn.addEventListener('click', () => {
         mobileMenuBtn.classList.toggle('active');
@@ -117,11 +198,30 @@ html(lang='fa' dir='rtl')
         });
       });
 
+      // Handle link clicks in mobile view
+      const mobileLinks = document.querySelectorAll('.nav-links a, .dropdown-content a');
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          if (window.innerWidth <= 768) {
+            // Only prevent default for dropdown toggles
+            if (!link.parentElement.classList.contains('dropdown')) {
+              // Close mobile menu after clicking a link
+              mobileMenuBtn.classList.remove('active');
+              navLinksContainer.classList.remove('active');
+              // Reset all dropdowns
+              dropdowns.forEach(dropdown => dropdown.classList.remove('active'));
+            }
+          }
+        });
+      });
+
       // Close mobile menu when clicking outside
       document.addEventListener('click', (e) => {
         if (!navLinksContainer.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
           mobileMenuBtn.classList.remove('active');
           navLinksContainer.classList.remove('active');
+          // Reset all dropdowns
+          dropdowns.forEach(dropdown => dropdown.classList.remove('active'));
         }
       });
 
@@ -132,6 +232,34 @@ html(lang='fa' dir='rtl')
           navLinksContainer.classList.remove('active');
           dropdowns.forEach(dropdown => dropdown.classList.remove('active'));
         }
+      });
+
+      // Dropdown handling for all dropdowns
+      dropdowns.forEach(dropdown => {
+        const dropdownContent = dropdown.querySelector('.dropdown-content');
+        let isDropdownOpen = false;
+        let timeoutId;
+
+        function showDropdown() {
+          isDropdownOpen = true;
+          dropdownContent.style.display = 'flex';
+          if (timeoutId) {
+            clearTimeout(timeoutId);
+          }
+        }
+
+        function hideDropdown() {
+          timeoutId = setTimeout(() => {
+            isDropdownOpen = false;
+            dropdownContent.style.display = 'none';
+          }, 200);
+        }
+
+        dropdown.addEventListener('mouseenter', showDropdown);
+        dropdownContent.addEventListener('mouseenter', showDropdown);
+        
+        dropdown.addEventListener('mouseleave', hideDropdown);
+        dropdownContent.addEventListener('mouseleave', hideDropdown);
       });
 
       let slideIndex = 1;
@@ -168,33 +296,6 @@ html(lang='fa' dir='rtl')
         changeSlide(1);
       }, 5000);
 
-      // Dropdown handling
-      const dropdown = document.querySelector('.dropdown');
-      const dropdownContent = document.querySelector('.dropdown-content');
-      let isDropdownOpen = false;
-      let timeoutId;
-
-      function showDropdown() {
-        isDropdownOpen = true;
-        dropdownContent.style.display = 'flex';
-        if (timeoutId) {
-          clearTimeout(timeoutId);
-        }
-      }
-
-      function hideDropdown() {
-        timeoutId = setTimeout(() => {
-          isDropdownOpen = false;
-          dropdownContent.style.display = 'none';
-        }, 200);
-      }
-
-      dropdown.addEventListener('mouseenter', showDropdown);
-      dropdownContent.addEventListener('mouseenter', showDropdown);
-      
-      dropdown.addEventListener('mouseleave', hideDropdown);
-      dropdownContent.addEventListener('mouseleave', hideDropdown);
-        
     section.about-section
       h2.section-title درباره سی ان سی برتر
       .about-content
@@ -273,6 +374,88 @@ html(lang='fa' dir='rtl')
               .service-link
                 span مشاهده خدمات
                 i.fas.fa-chevron-left
+
+    section.milling-services
+      .milling-container
+        .milling-images
+          .milling-image
+            img(src='/img/landing/05.jpg' alt='فرز CNC 1')
+          .milling-image
+            img(src='/img/landing/06.jpg' alt='فرز CNC 2')
+          .milling-image
+            img(src='/img/landing/07.jpg' alt='فرز CNC 3')
+        .milling-content
+          h2.milling-title خدمات فرز CNC
+          p.milling-description
+            | با استفاده از پیشرفته‌ترین دستگاه‌های فرز CNC، خدمات ماشینکاری دقیق و با کیفیت را به مشتریان خود ارائه می‌دهیم. تیم متخصص ما با تجربه بالا در زمینه فرزکاری، آماده خدمت‌رسانی به صنایع مختلف می‌باشد.
+          ul.milling-features
+            li
+              i.fas.fa-check
+              span فرزکاری سه محوره و پنج محوره
+            li
+              i.fas.fa-check
+              span ماشینکاری قطعات با پیچیدگی بالا
+            li
+              i.fas.fa-check
+              span تولید قطعات با تلرانس دقیق
+            li
+              i.fas.fa-check
+              span استفاده از نرم‌افزارهای پیشرفته CAD/CAM
+            li
+              i.fas.fa-check
+              span پشتیبانی از فرمت‌های مختلف فایل
+            li
+              i.fas.fa-check
+              span خدمات مشاوره و طراحی
+
+    footer.footer
+      .footer-container
+        .footer-section.quick-access
+          h3.footer-title دسترسی سریع
+          ul.footer-links
+            li
+              a(href='/') صفحه اصلی
+            li
+              a(href='/services') خدمات ما
+            li
+              a(href='/products') محصولات
+            li
+              a(href='/articles') مقالات
+            li
+              a(href='/about') درباره ما
+            li
+              a(href='/contact') تماس با ما
+
+        .footer-section.about
+          h3.footer-title درباره سی ان سی برتر
+          p.footer-description
+            | شرکت سی ان سی برتر با بیش از یک دهه تجربه در زمینه خدمات برش و حکاکی، یکی از پیشگامان صنعت در ایران است. ما با استفاده از پیشرفته‌ترین دستگاه‌های CNC، لیزر، واترجت و پلاسما، خدمات برش و حکاکی با دقت بالا را به مشتریان خود ارائه می‌دهیم.
+
+        .footer-section.contact
+          h3.footer-title تماس با ما
+          .contact-info
+            .contact-item
+              i.fas.fa-map-marker-alt
+              span تهران، خیابان ولیعصر، خیابان فرشته
+            .contact-item
+              i.fas.fa-phone
+              span ۰۲۱-۱۲۳۴-۵۶۷۸
+            .contact-item
+              i.fas.fa-mobile-alt
+              span ۰۹۱۲-۳۴۵-۶۷۸۹
+            .contact-item
+              i.fas.fa-envelope
+              span info@cncbartar.com
+          .social-links
+            a.social-link(href='#' target='_blank')
+              i.fab.fa-instagram
+            a.social-link(href='#' target='_blank')
+              i.fab.fa-whatsapp
+            a.social-link(href='#' target='_blank')
+              i.fab.fa-telegram-plane
+
+      .footer-bottom
+        p.copyright © ۱۴۰۳ سی ان سی برتر. تمامی حقوق محفوظ است.
 
     script.
       // Card slideshow functionality
