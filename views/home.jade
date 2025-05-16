@@ -149,13 +149,23 @@ html(lang='fa' dir='rtl')
                   a(href='/contact/hours') ساعات کاری
                   a(href='/contact/locations') شعبه‌ها
                   a(href='/contact/emergency') تماس اضطراری
-      
+          .mobile-extra
+            .search-box
+              input(type='text' placeholder='جستجو...')
+              button.search-btn
+                i.fas.fa-search
+            .social-links
+              a.social-link(href='#' target='_blank')
+                i.fab.fa-instagram
+              a.social-link(href='#' target='_blank')
+                i.fab.fa-whatsapp
+              a.social-link(href='#' target='_blank')
+                i.fab.fa-telegram-plane
       .navbar-left
         .search-box
           input(type='text' placeholder='جستجو...')
           button.search-btn
             i.fas.fa-search
-    
         .social-links
           a.social-link(href='#' target='_blank')
             i.fab.fa-instagram
@@ -163,138 +173,6 @@ html(lang='fa' dir='rtl')
             i.fab.fa-whatsapp
           a.social-link(href='#' target='_blank')
             i.fab.fa-telegram-plane
-          
-    script.
-      // Mobile menu functionality
-      const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-      const navLinksContainer = document.querySelector('.nav-links-container');
-      const dropdowns = document.querySelectorAll('.dropdown');
-      const navbar = document.querySelector('.navbar');
-
-      // Navbar scroll animation
-      window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-          navbar.style.margin = '1vw';
-          navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-        } else {
-          navbar.style.margin = '3vw';
-          navbar.style.background = 'rgba(255, 255, 255, 0.9)';
-        }
-      });
-
-      mobileMenuBtn.addEventListener('click', () => {
-        mobileMenuBtn.classList.toggle('active');
-        navLinksContainer.classList.toggle('active');
-      });
-
-      // Handle dropdowns in mobile view
-      dropdowns.forEach(dropdown => {
-        const dropdownLink = dropdown.querySelector('a');
-        dropdownLink.addEventListener('click', (e) => {
-          if (window.innerWidth <= 768) {
-            e.preventDefault();
-            dropdown.classList.toggle('active');
-          }
-        });
-      });
-
-      // Handle link clicks in mobile view
-      const mobileLinks = document.querySelectorAll('.nav-links a, .dropdown-content a');
-      mobileLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-          if (window.innerWidth <= 768) {
-            // Only prevent default for dropdown toggles
-            if (!link.parentElement.classList.contains('dropdown')) {
-              // Close mobile menu after clicking a link
-              mobileMenuBtn.classList.remove('active');
-              navLinksContainer.classList.remove('active');
-              // Reset all dropdowns
-              dropdowns.forEach(dropdown => dropdown.classList.remove('active'));
-            }
-          }
-        });
-      });
-
-      // Close mobile menu when clicking outside
-      document.addEventListener('click', (e) => {
-        if (!navLinksContainer.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
-          mobileMenuBtn.classList.remove('active');
-          navLinksContainer.classList.remove('active');
-          // Reset all dropdowns
-          dropdowns.forEach(dropdown => dropdown.classList.remove('active'));
-        }
-      });
-
-      // Close mobile menu when window is resized above mobile breakpoint
-      window.addEventListener('resize', () => {
-        if (window.innerWidth > 768) {
-          mobileMenuBtn.classList.remove('active');
-          navLinksContainer.classList.remove('active');
-          dropdowns.forEach(dropdown => dropdown.classList.remove('active'));
-        }
-      });
-
-      // Dropdown handling for all dropdowns
-      dropdowns.forEach(dropdown => {
-        const dropdownContent = dropdown.querySelector('.dropdown-content');
-        let isDropdownOpen = false;
-        let timeoutId;
-
-        function showDropdown() {
-          isDropdownOpen = true;
-          dropdownContent.style.display = 'flex';
-          if (timeoutId) {
-            clearTimeout(timeoutId);
-          }
-        }
-
-        function hideDropdown() {
-          timeoutId = setTimeout(() => {
-            isDropdownOpen = false;
-            dropdownContent.style.display = 'none';
-          }, 200);
-        }
-
-        dropdown.addEventListener('mouseenter', showDropdown);
-        dropdownContent.addEventListener('mouseenter', showDropdown);
-        
-        dropdown.addEventListener('mouseleave', hideDropdown);
-        dropdownContent.addEventListener('mouseleave', hideDropdown);
-      });
-
-      let slideIndex = 1;
-      showSlides(slideIndex);
-
-      function changeSlide(n) {
-        showSlides(slideIndex += n);
-      }
-
-      function currentSlide(n) {
-        showSlides(slideIndex = n);
-      }
-
-      function showSlides(n) {
-        let slides = document.getElementsByClassName("slide");
-        let dots = document.getElementsByClassName("dot");
-        
-        if (n > slides.length) {slideIndex = 1}
-        if (n < 1) {slideIndex = slides.length}
-        
-        for (let i = 0; i < slides.length; i++) {
-          slides[i].style.display = "none";
-        }
-        for (let i = 0; i < dots.length; i++) {
-          dots[i].className = dots[i].className.replace(" active", "");
-        }
-        
-        slides[slideIndex-1].style.display = "block";
-        dots[slideIndex-1].className += " active";
-      }
-
-      // Auto slide
-      setInterval(() => {
-        changeSlide(1);
-      }, 5000);
 
     section.about-section
       h2.section-title درباره سی ان سی برتر
@@ -458,6 +336,170 @@ html(lang='fa' dir='rtl')
         p.copyright © ۱۴۰۳ سی ان سی برتر. تمامی حقوق محفوظ است.
 
     script.
+      // Mobile menu functionality
+      const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+      const navLinksContainer = document.querySelector('.nav-links-container');
+      const dropdowns = document.querySelectorAll('.dropdown');
+      const navbar = document.querySelector('.navbar');
+
+      // Navbar scroll animation
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+          navbar.style.margin = '1vw';
+          navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+        } else {
+          navbar.style.margin = '3vw';
+          navbar.style.background = 'rgba(255, 255, 255, 0.9)';
+        }
+      });
+
+      mobileMenuBtn.addEventListener('click', () => {
+        mobileMenuBtn.classList.toggle('active');
+        navLinksContainer.classList.toggle('active');
+      });
+
+      // Handle dropdowns in mobile view
+      dropdowns.forEach(dropdown => {
+        const dropdownLink = dropdown.querySelector('a');
+        const dropdownContent = dropdown.querySelector('.dropdown-content');
+        
+        dropdownLink.addEventListener('touchend', function(e) {
+          if (window.innerWidth <= 768) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            // Close other dropdowns
+            dropdowns.forEach(otherDropdown => {
+              if (otherDropdown !== dropdown) {
+                otherDropdown.classList.remove('active');
+              }
+            });
+
+            // Toggle current dropdown
+            dropdown.classList.toggle('active');
+
+            // Ensure the dropdown toggle stays in view
+            setTimeout(() => {
+              // Scroll the nav-links-container so the dropdownLink is fully visible
+              const container = navLinksContainer;
+              const linkRect = dropdownLink.getBoundingClientRect();
+              const containerRect = container.getBoundingClientRect();
+
+              if (linkRect.top < containerRect.top) {
+                // If link is above the visible area, scroll up
+                container.scrollTop += linkRect.top - containerRect.top - 10;
+              } else if (linkRect.bottom > containerRect.bottom) {
+                // If link is below the visible area, scroll down
+                container.scrollTop += linkRect.bottom - containerRect.bottom + 10;
+              }
+            }, 10);
+          }
+        });
+
+        // Prevent clicks inside dropdown from bubbling up
+        dropdownContent.addEventListener('click', (e) => {
+          e.stopPropagation();
+        });
+      });
+
+      // Handle link clicks in mobile view
+      const mobileLinks = document.querySelectorAll('.nav-links a, .dropdown-content a');
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          if (window.innerWidth <= 768) {
+            // Only prevent default for dropdown toggles
+            if (!link.parentElement.classList.contains('dropdown')) {
+              // Close mobile menu after clicking a link
+              mobileMenuBtn.classList.remove('active');
+              navLinksContainer.classList.remove('active');
+              // Reset all dropdowns
+              dropdowns.forEach(dropdown => dropdown.classList.remove('active'));
+            }
+          }
+        });
+      });
+
+      // Close mobile menu when clicking outside
+      document.addEventListener('click', (e) => {
+        if (!navLinksContainer.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+          mobileMenuBtn.classList.remove('active');
+          navLinksContainer.classList.remove('active');
+          // Reset all dropdowns
+          dropdowns.forEach(dropdown => dropdown.classList.remove('active'));
+        }
+      });
+
+      // Close mobile menu when window is resized above mobile breakpoint
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 768) {
+          mobileMenuBtn.classList.remove('active');
+          navLinksContainer.classList.remove('active');
+          dropdowns.forEach(dropdown => dropdown.classList.remove('active'));
+        }
+      });
+
+      // Dropdown handling for all dropdowns
+      dropdowns.forEach(dropdown => {
+        const dropdownContent = dropdown.querySelector('.dropdown-content');
+        let isDropdownOpen = false;
+        let timeoutId;
+
+        function showDropdown() {
+          isDropdownOpen = true;
+          dropdownContent.style.display = 'flex';
+          if (timeoutId) {
+            clearTimeout(timeoutId);
+          }
+        }
+
+        function hideDropdown() {
+          timeoutId = setTimeout(() => {
+            isDropdownOpen = false;
+            dropdownContent.style.display = 'none';
+          }, 200);
+        }
+
+        dropdown.addEventListener('mouseenter', showDropdown);
+        dropdownContent.addEventListener('mouseenter', showDropdown);
+        
+        dropdown.addEventListener('mouseleave', hideDropdown);
+        dropdownContent.addEventListener('mouseleave', hideDropdown);
+      });
+
+      let slideIndex = 1;
+      showSlides(slideIndex);
+
+      function changeSlide(n) {
+        showSlides(slideIndex += n);
+      }
+
+      function currentSlide(n) {
+        showSlides(slideIndex = n);
+      }
+
+      function showSlides(n) {
+        let slides = document.getElementsByClassName("slide");
+        let dots = document.getElementsByClassName("dot");
+        
+        if (n > slides.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = slides.length}
+        
+        for (let i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+        for (let i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+        }
+        
+        slides[slideIndex-1].style.display = "block";
+        dots[slideIndex-1].className += " active";
+      }
+
+      // Auto slide
+      setInterval(() => {
+        changeSlide(1);
+      }, 5000);
+
       // Card slideshow functionality
       function initCardSlideshows() {
         const cardSlideshows = document.querySelectorAll('.card-slideshow');
