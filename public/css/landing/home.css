@@ -28,6 +28,24 @@ body {
   transition: margin-top 0.3s ease;
 }
 
+@media screen and (max-width: 1200px) {
+  .slideshow-container {
+    height: 60vw;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .slideshow-container {
+    height: 70vw;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .slideshow-container {
+    height: 80vw;
+  }
+}
+
 .slide {
   display: none;
   width: 100%;
@@ -67,6 +85,20 @@ body {
   margin-bottom: 1vw;
   font-weight: bold;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+@media screen and (max-width: 768px) {
+  .slide-content .title {
+    font-size: 5vw;
+    margin-bottom: 2vw;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .slide-content .title {
+    font-size: 7vw;
+    margin-bottom: 3vw;
+  }
 }
 
 .slide-content .description {
