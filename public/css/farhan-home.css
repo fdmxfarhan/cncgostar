@@ -84,6 +84,9 @@
             animation-name: fade;
             animation-duration: 3s;
         }
+        .map-view{
+            width: 60%;
+        }
         @keyframes fade {
             from {
                 opacity: .4
