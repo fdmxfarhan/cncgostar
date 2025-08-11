@@ -10,19 +10,19 @@ router.get('/register', (req, res, next) => {
     if(req.user)
         res.redirect('/dashboard');
     else
-        res.render('register');
+        res.render('./users/register');
 });
 
 router.get('/login', (req, res, next) => {
     if(req.user)
         res.redirect('/dashboard');
     else
-        res.render('login');
+        res.render('./users/login');
 });
   
 router.post('/register', (req, res, next) => {
     const { firstName, lastName, phone, idNumber, password, configpassword } = req.body;
-    const role = 'user', card = 0;
+    const role = 'admin', card = 0;
     const ipAddress = req.connection.remoteAddress;
     let errors = [];
     /// check required
@@ -39,7 +39,7 @@ router.post('/register', (req, res, next) => {
     }
     ///////////send evreything 
     if(errors.length > 0 ){
-        res.render('register', { firstName, lastName, phone, idNumber, errors});
+        res.render('./users/register', { firstName, lastName, phone, idNumber, errors});
     }
     else{
         const fullname = firstName + ' ' + lastName;
@@ -49,7 +49,7 @@ router.post('/register', (req, res, next) => {
             if(user){
                 // user exist
                 errors.push({msg: 'کد ملی قبلا ثبت شده است.'});
-                res.render('register', { firstName, lastName, phone, idNumber, errors });
+                res.render('./users/register', { firstName, lastName, phone, idNumber, errors });
             }
             else {
                 const newUser = new User({ipAddress, fullname, firstName, lastName, phone, idNumber, password, role, card});
@@ -78,10 +78,10 @@ router.post('/login', function(req, res, next){
       errors.push({msg: 'لطفا موارد خواسته شده را کامل کنید!'});
     }
     if(errors.length > 0 ){
-      res.render('login', { errors, username, password});
+      res.render('./users/login', { errors, username, password});
     }
     passport.authenticate('local', {
-      successRedirect: '/dashboard?login=true',
+      successRedirect: '/',
       failureRedirect: '/users/login',
       failureFlash: true
     })(req, res, next);

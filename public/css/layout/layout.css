@@ -1,0 +1,24 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'iransans', 'Open Sans', sans-serif;
+  direction: rtl;
+  text-align: right;
+  padding-top: calc(3vw + 80px);
+  transition: padding-top 0.3s ease;
+  padding: 0;
+  margin: 0;
+}
+
+@font-face {
+  font-family: 'iransans';
+  src: url('../iransans.ttf');
+}
+
+.space-under-nav{
+  height: 20vh;
+}

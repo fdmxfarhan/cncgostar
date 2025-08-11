@@ -9,10 +9,10 @@ module.exports = function(){
     passport.use(
         new LocalStrategy({ usernameField: 'username' , passwordField: 'password'}, function(username, password, done){
             //Match User
-            User.findOne({idNumber: username})
+            User.findOne({$or: [{email: username}, {phone: username}]})
                 .then(user => {
                     if(!user){
-                        return done(null,false, {message: 'کد ملی یافت نشد!'});
+                        return done(null,false, {message: 'ایمیل یا شماره تلفن یافت نشد!'});
                     }
                     // Match password
                     bcrypt.compare(password, user.password, function(err, isMatch){

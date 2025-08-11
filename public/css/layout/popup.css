@@ -1,0 +1,124 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.modal-box {
+  background-color: var(--light);
+  color: var(--dark);
+  border-radius: 20px;
+  padding: 2rem;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  text-align: center;
+  margin: auto;
+  margin-top: 5vh;
+}
+
+.modal-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.modal-subtitle {
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+  color: #aaa;
+}
+
+.select-input,
+.text-input,
+.textarea-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  border: none;
+  border-radius: 10px;
+  background-color: var(--inputgray);
+  color: var(--textcolor);
+  font-size: 0.9rem;
+  font-family: var(--iransans);
+}
+.textarea-input{
+  resize: vertical;
+}
+
+.select-input:focus,
+.text-input:focus,
+.textarea-input:focus {
+  outline: none;
+  border: 1px solid #ff6b6b;
+}
+
+.confirm-button {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: var(--blue);
+  color: var(--light);
+  border: none;
+  border-radius: 15px;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  font-family: var(--iransans);
+}
+
+.cancel-button {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: var(--lightred);
+  color: var(--light);
+  border: none;
+  border-radius: 15px;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  font-family: var(--iransans);
+}
+.cancel-button:hover {
+  background-color: var(--red);
+}
+.confirm-button:hover {
+  background-color: var(--green);
+}
+.order-contacts .row {
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  align-self: center;
+  text-align: center;
+}
+.order-contacts .row a{
+  align-self: center;
+  text-align: center;
+  display: block;
+  margin: auto;
+}
+.order-contacts .row a i{
+  padding: 0 0.5vw;
+}
+
+@media (max-width: 480px) {
+  .modal-box {
+    padding: 1.5rem;
+  }
+
+  .modal-title {
+    font-size: 1rem;
+  }
+
+  .modal-subtitle {
+    font-size: 0.8rem;
+  }
+}
