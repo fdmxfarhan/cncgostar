@@ -1,0 +1,51 @@
+extends ../layout/layout
+
+block styles 
+  link(rel="stylesheet", href="/css/layout/two-col-layout.css")
+
+block content
+  .wrapper
+    .sidebar-container-view
+      .sidebar
+        .contact-info 
+          a.button#open-consultation-btn سفارش قطعه
+          a.link(href="tel:09121974633")
+            i.fa.fa-phone
+            | 09121974633
+        h1.title
+          i.fa.fa-circle
+          | دسترسی سریع
+        .cards-view 
+          a.card(href="#") 
+            i.fa.fa-user-graduate
+            h1 مخابراتی
+          a.card(href="#") 
+            i.fa.fa-briefcase
+            h1 پزشکی
+          a.card(href="#") 
+            i.fa.fa-calendar-alt
+            h1 صنعتی
+          a.card(href="#") 
+            i.fa.fa-passport
+            h1 سه محور
+          a.card(href="#") 
+            i.fa.fa-home
+            h1 چهار محور
+          a.card(href="#") 
+            i.fa.fa-plane-departure
+            h1 قالب سازی
+          
+        h1.title
+          i.fa.fa-circle
+          | مقالات اخیر
+        
+    .main-content
+      .content 
+        h1.main-title
+          i.fa.fa-circle
+          | #{title}
+        if user && user.role == 'admin'
+          a.edit-page(href="/edit-service?title=#{title}") 
+            i.fa.fa-edit
+        if content 
+          .main-content!= content.content

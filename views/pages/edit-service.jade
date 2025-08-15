@@ -1,0 +1,56 @@
+extends ../layout/layout
+
+block styles 
+  link(rel="stylesheet", href="/css/layout/two-col-layout.css")
+
+block content
+  .wrapper
+    .sidebar-container-view
+      .sidebar
+        .contact-info 
+          a.button#open-consultation-btn درخواست مشاوره
+          a.link(href="tel:۰۹۱۹۲۱۷۴۱۰۴")
+            i.fa.fa-phone
+            | ۰۹۱۹۲۱۷۴۱۰۴
+        h1.title
+          i.fa.fa-circle
+          | دسترسی سریع
+        .cards-view 
+          a.card(href="#") 
+            i.fa.fa-user-graduate
+            h1 تحصیل
+          a.card(href="#") 
+            i.fa.fa-briefcase
+            h1 کار
+          a.card(href="#") 
+            i.fa.fa-calendar-alt
+            h1 مهاجرت
+          a.card(href="#") 
+            i.fa.fa-passport
+            h1 ویزا
+          a.card(href="#") 
+            i.fa.fa-home
+            h1 زندگی
+          a.card(href="#") 
+            i.fa.fa-plane-departure
+            h1 سفر
+          
+        h1.title
+          i.fa.fa-circle
+          | مقالات اخیر
+        
+    .main-content
+      .content 
+        h1.main-title
+          i.fa.fa-circle
+          | مهاجرت تحصیلی به #{countryName}
+        .main-content
+          form(method='POST', action='/update-service')
+            input.hide(type="text" name="title" value="#{title}")
+            textarea#edit(name="content" style="margin-top: 30px;" placeholder="Type some text")!= typeof(content) != 'undefined' ? content.content : ''
+            script.
+              new FroalaEditor("div#froala-editor");
+            button.submit-btn(type='submit') ثبت
+
+  script(src="https://cdn.tiny.cloud/1/4hadxl3pj0it7cd5uuxfwif1ij4vjx1e2lbflw2iv89rmr6x/tinymce/8/tinymce.min.js" referrerpolicy="origin" crossorigin="anonymous")
+  script(src="/js/editor.js")

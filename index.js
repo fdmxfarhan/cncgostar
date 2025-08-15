@@ -14,6 +14,7 @@ const passport = require('passport');
 
 
 // routs requirement
+var uploadHandler = require('./routes/upload');
 var homeRoute = require('./routes/home');
 var usersRoute = require('./routes/users');
 var dashboardRoute = require('./routes/dashboard');
@@ -67,11 +68,8 @@ var privateKey  = fs.readFileSync('ssl/server.key', 'utf8');
 var certificate = fs.readFileSync('ssl/server.crt', 'utf8');
 var credentials = {key: privateKey, cert: certificate};
 
-// port setup
-const port = 3000
-
 // Upload
-// app.use('/upload', uploadHandler);
+app.use('/upload', uploadHandler);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

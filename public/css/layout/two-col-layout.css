@@ -1,0 +1,137 @@
+.wrapper{
+  padding: 10px 8%;
+  flex-direction: row-reverse;
+  display: flex;
+}
+.sidebar-container-view{
+  width: 30%;
+  margin-right: 2%;
+}
+.main-content{
+  width: 68%;
+}
+.sidebar, .content{
+  background-color: white;
+  overflow: hidden;
+  border-radius: 10px;
+  position: relative;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.178);
+}
+.sidebar .contact-info {
+  flex-direction: row;
+  display: flex;
+  padding: 1vw;
+  align-items: center;
+  align-content: center;
+  margin-top: 1vw;
+}
+.sidebar .contact-info a{
+  display: block;
+  cursor: pointer;
+  text-decoration: none;
+  font-family: 'iransans';
+  font-size: 1.2vw;
+}
+.sidebar a.button{
+  background-color: var(--blue);
+  color: white;
+  border-radius: 5px;
+  padding: 0.9vw 1.5vw;
+}
+.sidebar a.button:hover{
+  background-color: var(--green);
+}
+.sidebar a.link{
+  color: var(--textgray);
+  font-size: 1.5vw;
+}
+.sidebar a.link:hover{
+  color: var(--blue);
+}
+.sidebar a.link i{
+  margin-left: 0.5vw;
+}
+.sidebar h1.title{
+  padding: 1vw;
+  margin: 0;
+  font-size: 1.3vw;
+  font-family: 'iransans';
+  color: var(--textcolor);
+  margin-top: 1vw;
+}
+.sidebar h1.title i,
+.content h1.main-title i{
+  font-size: 0.9vw;
+  color: var(--blue);
+  padding-left: 0.7vw;
+}
+.sidebar .cards-view {
+  overflow: hidden;
+  width: 90%;
+  margin: auto;
+}
+.sidebar .cards-view a.card{
+  display: block;
+  float: right;
+  width: 29%;
+  margin-left: 3%;
+  border: 1px solid var(--gray);
+  margin-bottom: 1vw;
+  height: 6vw;
+  border-radius: 10px;
+  color: var(--textgray);
+  text-decoration: none;
+}
+.sidebar .cards-view a.card:hover{
+  color: var(--blue);
+  border-color: var(--blue);
+}
+.sidebar .cards-view a.card i{
+  display: block;
+  text-align: center;
+  margin-top: 1vw;
+  font-size: 1.5vw;
+}
+.sidebar .cards-view a.card h1{
+  font-size: 1vw;
+  text-align: center;
+}
+.content h1.main-title{
+  color: var(--textcolor);
+  font-size: 1.2vw;
+  padding: 1vw 2vw;
+
+}
+.content .main-content{
+  width: 90%;
+  margin: auto;
+  /* padding: 1vw 2vw;  */
+}
+.content .main-content *{ 
+  font-family: 'iransans';
+}
+.content .main-content form{
+  display: block;
+}
+button.submit-btn{
+  background-color: var(--blue);
+  color: white;
+  border-radius: 5px;
+  padding: 0.9vw 3vw;
+  margin-right: 1vw;
+  margin-bottom: 2vw;
+  margin-top: 1vw;
+  border: none;
+  font-family: 'iransans';
+  font-size: 1.2vw;
+  cursor: pointer;
+}
+button.submit-btn:hover{background-color: var(--green);}
+.content .edit-page{
+  position: absolute;
+  font-size: 2vw;
+  left: 2vw;
+  top: 1vw;
+  color: var(--textgray);
+}
+.content .edit-page:hover{color: var(--blue);}
