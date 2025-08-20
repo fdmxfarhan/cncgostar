@@ -11,7 +11,7 @@ router.get('/', (req, res, next) => {
 router.post('/contactus', (req, res, next) => {
     var {fullname, phone, description} = req.body;
     req.flash('success_msg', 'درخواست شما با موفقیت ثبت شد');
-    sms('09336448037', `سفارش جدید سایت:\nنام: ${fullname}\nشماره تماس: ${phone}\nمتن پیام: ${description}`);
+    sms('09017765682', `سفارش جدید سایت:\nنام: ${fullname}\nشماره تماس: ${phone}\nمتن پیام: ${description}`);
     sms('09121974633', `سفارش جدید سایت:\nنام: ${fullname}\nشماره تماس: ${phone}\nمتن پیام: ${description}`);
     sms(phone, `${fullname} عزیز. درخواست شما با موفقیت ثبت شد. همکاران ما در اولین فرصت با شما تماس خواهند گرفت.`);
     res.redirect('/');
